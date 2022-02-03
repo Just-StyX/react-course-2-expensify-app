@@ -82002,22 +82002,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var store = (0,_store_configureStore__WEBPACK_IMPORTED_MODULE_3__["default"])();
-store.dispatch((0,_actions_expenses__WEBPACK_IMPORTED_MODULE_4__.addExpense)({
-  description: "Water Bill",
-  amount: 4500
-}));
-store.dispatch((0,_actions_expenses__WEBPACK_IMPORTED_MODULE_4__.addExpense)({
-  description: "Gas Bill",
-  createdAt: 1000
-}));
-store.dispatch((0,_actions_expenses__WEBPACK_IMPORTED_MODULE_4__.addExpense)({
-  description: "Rent",
-  amount: 109500
-}));
-var state = store.getState();
-var visibleExpenses = (0,_selectors_expenses__WEBPACK_IMPORTED_MODULE_5__["default"])(state.expenses, state.filters);
-console.log(visibleExpenses); //console.log(store.getState());
-
 var rootElement = document.getElementById("app");
 react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_6__.Provider, {
   store: store
