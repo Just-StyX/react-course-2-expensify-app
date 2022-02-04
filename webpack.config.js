@@ -1,17 +1,14 @@
 const path = require('path');
 
-//const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = () => {
-    //const CSSExtract = new ExtractTextPlugin('styles.css')
     return {
         mode: 'production',
         entry: './src/app.js',
         output: {
             filename: 'bundle.js',
-            path: path.resolve(__dirname, 'public'),
-            publicPath: 'public'
+            path: path.resolve(__dirname, 'public', 'dist')
         },
         module: {
             rules: [{
@@ -25,13 +22,13 @@ module.exports = () => {
             }]
         },
         plugins: [new MiniCssExtractPlugin({filename: "styles.css"})],
-        //plugins: [ CSSExtract ],
         devtool: 'source-map',
         devServer: {
             static: {
-              directory: path.resolve(__dirname, 'public')
+              directory: path.resolve(__dirname, 'public'),
+              publicPath: '/dist'
             },
-            historyApiFallback: true  
+            historyApiFallback: true 
         },
     }
 }

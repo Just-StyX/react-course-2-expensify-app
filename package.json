@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
     "serve": "webpack serve",
+    "build": "webpack",
     "test": "jest --config=jest.config.json",
     "start": "node server/server.js",
     "heroku-postbuild": "yarn run build"
@@ -16,11 +16,7 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^6.5.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "enzyme-to-json": "^3.6.2",
     "express": "^4.17.2",
-    "jest": "^27.4.7",
     "moment": "^2.29.1",
     "node-sass": "^7.0.1",
     "normalize.css": "^8.0.1",
@@ -31,7 +27,6 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "react-test-renderer": "^17.0.2",
     "redux": "^4.1.2",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
@@ -43,7 +38,13 @@
     "@babel/core": "^7.16.10",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "chalk": "^5.0.0",
     "mini-css-extract-plugin": "^2.5.3",
-    "webpack-dev-server": "^4.7.3"
+    "webpack-dev-server": "^4.7.3",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
+    "enzyme": "^3.11.0",
+    "react-test-renderer": "^17.0.2",
+    "jest": "^27.4.7"
   }
 }
