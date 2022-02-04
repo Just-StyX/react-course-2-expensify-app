@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack serve",
-    "test": "jest --config=jest.config.json"
+    "test": "jest --config=jest.config.json",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build"
   },
   "dependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
@@ -17,6 +19,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.2",
+    "express": "^4.17.2",
     "jest": "^27.4.7",
     "moment": "^2.29.1",
     "node-sass": "^7.0.1",
