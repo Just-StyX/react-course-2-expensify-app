@@ -30,3 +30,25 @@ export const editExpense = (id, updates) => ({
     id, 
     updates
 })
+
+export const setExpense = (expenses) => ({
+    type: 'SET_EXPENSE',
+    expenses
+})
+
+export const startSetExpenses = () => {
+    return (dispatch) => {
+        const reference = ref(database, 'expenses')
+        return onValue(reference, (snapshot) => {
+            const expenses = [];
+
+            snapshot.forEach((child) => {
+                expenses.push({
+                    id: child.key,
+                    ...child.val()
+                })
+            })
+            dispatch(setExpense(expenses))
+        })
+    }
+}
