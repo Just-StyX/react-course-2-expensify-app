@@ -2,11 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
-import { editExpense, startRemoveExpense } from "../actions/expenses";
+import { setEditExpense, startRemoveExpense } from "../actions/expenses";
 
 class EditExpensePageClass extends React.Component {
   onSubmit = (expense) => {
-    this.props.dispatch(editExpense(this.props.expense.id, expense));
+    this.props.dispatch(setEditExpense(this.props.expense.id, expense));
     this.props.history("/");
   };
   onRemove = () => {
