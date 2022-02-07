@@ -5,16 +5,22 @@ import ExpenseDashBoardPage from "../components/ExpenseDashBoardPage";
 import AddExpensePage from "../components/AddExpensePage";
 import EditExpensePage from "../components/EditExpensePage";
 import HelpPage from "../components/HelpPage";
-import Header from "../components/Header";
+import LogingPage from "../components/LoginPage"
+import { createBrowserHistory } from 'history'
+import PrivateRoute from './PrivateRoute'
+
+export const history = createBrowserHistory();
 
 const AppRouter = () => (
   <div>
-    <BrowserRouter>
-    <Header style={() => ({marginBottom: "2rem"})}/>
+    <BrowserRouter history={history}>
     <Routes>
-      <Route path="/" element={<ExpenseDashBoardPage />} />
-      <Route path="/create" element={<AddExpensePage />} />
-      <Route path="/edit/:id" element={<EditExpensePage />} />
+      <Route path="/" element={<LogingPage />} />
+      <Route element={<PrivateRoute />}>
+        <Route path="/dashboard" element={<ExpenseDashBoardPage />} />
+        <Route path="/create" element={<AddExpensePage />} />
+        <Route path="/edit/:id" element={<EditExpensePage />} />
+      </Route>
       <Route path="/help" element={<HelpPage />} />
       <Route
         path="*"

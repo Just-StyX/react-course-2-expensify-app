@@ -7,7 +7,7 @@ import { startAddExpense } from "../actions/expenses";
 class AddExpensePageClass extends React.Component {
   onSubmit = (expense) => {
     this.props.onSubmit(expense);
-    this.props.history("/");
+    this.props.history("/dashboard");
   };
   render() {
     const { history } = this.props;

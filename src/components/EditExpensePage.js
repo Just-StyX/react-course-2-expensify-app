@@ -7,11 +7,11 @@ import { setEditExpense, startRemoveExpense } from "../actions/expenses";
 class EditExpensePageClass extends React.Component {
   onSubmit = (expense) => {
     this.props.dispatch(setEditExpense(this.props.expense.id, expense));
-    this.props.history("/");
+    this.props.history("/dashboard");
   };
   onRemove = () => {
     this.props.dispatch(startRemoveExpense({ id: this.props.expense.id }));
-    this.props.history("/");
+    this.props.history("/dashboard");
   };
   render() {
     const { history } = this.props;

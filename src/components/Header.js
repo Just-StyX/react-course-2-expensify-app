@@ -1,10 +1,14 @@
 import React from "react";
+import { connect } from 'react-redux'
 import { NavLink } from "react-router-dom";
-const Header = () => (
+import { startLogOut } from "../actions/auth"
+
+
+export const Header = ({ startLogOut}) => (
   <header>
     <h1>Expensify Application</h1> <hr />
     <NavLink
-      to="/"
+      to="dashboard"
       style={({ isActive }) => ({
         color: isActive ? "green" : "navy",
         fontWeight: isActive ? "bold" : ""
@@ -32,7 +36,13 @@ const Header = () => (
     >
       Help Page
     </NavLink>{" "}
+    |{" "}
+    <button onClick={startLogOut}>Log out</button>
   </header>
 );
 
-export default Header;
+const mapDispatchToProps = (dispatch) => ({
+  startLogOut: () => dispatch(startLogOut())
+})
+
+export default connect(undefined, mapDispatchToProps)(Header);

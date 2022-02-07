@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { GoogleAuthProvider } from 'firebase/auth'
 import { getDatabase, ref, set, remove, update, onValue, off, push, onChildRemoved, onChildChanged, onChildAdded } from 'firebase/database'
 
 const firebaseConfig = {
@@ -16,7 +17,9 @@ initializeApp(firebaseConfig);
 
 const database = getDatabase();
 
-export { database as default }
+const googleAuthProvider = new GoogleAuthProvider()
+
+export { googleAuthProvider, database as default }
 
 
 // const reference = ref(db, 'expenses')
