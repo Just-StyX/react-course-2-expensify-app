@@ -27,16 +27,6 @@ export const Header = ({ startLogOut}) => (
       Create Expenses
     </NavLink>{" "}
     |{" "}
-    <NavLink
-      to="help"
-      style={({ isActive }) => ({
-        color: isActive ? "green" : "navy",
-        fontWeight: isActive ? "bold" : ""
-      })}
-    >
-      Help Page
-    </NavLink>{" "}
-    |{" "}
     <button onClick={startLogOut}>Log out</button>
   </header>
 );

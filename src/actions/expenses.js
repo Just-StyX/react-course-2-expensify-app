@@ -8,10 +8,11 @@ export const addExpense = (expense) => ({
 })
 
 export const startAddExpense = (expenseData = {}) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
         const { description = '', note = '', amount = 0, createdAt = 0 } = expenseData;
         const expense = { description, note, amount, createdAt }
-        const reference = ref(database, 'expenses')
+        const reference = ref(database, `users/${uid}/expenses`)
         return push(reference, expense).then((ref) => {
             dispatch(addExpense({
                 id: ref.key,
@@ -26,8 +27,9 @@ export const removeExpense = ({ id } = {}) => ({
 })
 
 export const startRemoveExpense = ({ id } = {}) => {
-    return (dispatch) => {
-        const reference = ref(database, `expenses/${id}`)
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        const reference = ref(database, `users/${uid}/expenses/${id}`)
         return remove(reference).then(() => {
             dispatch(removeExpense({ id }))
         })
@@ -41,8 +43,9 @@ export const editExpense = (id, updates) => ({
 })
 
 export const setEditExpense = (id, updates) => {
-    return (dispatch) => {
-        const reference = ref(database, `expenses/${id}`)
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        const reference = ref(database, `users/${uid}/expenses/${id}`)
         return update(reference, updates).then(() => {
             dispatch(editExpense({ id, updates}))
         })
@@ -55,8 +58,9 @@ export const setExpense = (expenses) => ({
 })
 
 export const startSetExpenses = () => {
-    return (dispatch) => {
-        const reference = ref(database, 'expenses')
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        const reference = ref(database, `users/${uid}/expenses`)
         return onValue(reference, (snapshot) => {
             const expenses = [];
 
