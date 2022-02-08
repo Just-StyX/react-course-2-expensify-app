@@ -1,34 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render header 1`] = `
-<header>
-  <h1>
-    Expensify Application
-  </h1>
-   
-  <hr />
-  <NavLink
-    style={[Function]}
-    to="dashboard"
+<header
+  className="header"
+>
+  <div
+    className="content-container"
   >
-    Dashboard
-  </NavLink>
-   
-  |
-   
-  <NavLink
-    style={[Function]}
-    to="create"
-  >
-    Create Expenses
-  </NavLink>
-   
-  |
-   
-  <button
-    onClick={[Function]}
-  >
-    Log out
-  </button>
+    <div
+      className="header__content"
+    >
+      <Link
+        className="header__title"
+        to="/dashboard"
+      >
+        <h1>
+          Expensify
+        </h1>
+      </Link>
+      <button
+        className="button button--link"
+        onClick={[Function]}
+      >
+        Log out
+      </button>
+    </div>
+  </div>
 </header>
 `;

@@ -4,6 +4,7 @@ import AppRouter, { history } from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import { startSetExpenses } from './actions/expenses'
 import {login, logout } from './actions/auth'
+import LoadingPage from './components/LoadingPage'
 import { Provider } from "react-redux";
 import './styles/styles.scss'
 import 'normalize.css/normalize.css'
@@ -31,7 +32,7 @@ const renderApp = () => {
 
 const rootElement = document.getElementById("app");
 
-//ReactDOM.render(<p>Loading...</p>, rootElement);
+ReactDOM.render(<LoadingPage />, rootElement);
 
 const auth = getAuth()
 onAuthStateChanged(auth, (user) => {

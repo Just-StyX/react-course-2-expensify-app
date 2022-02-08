@@ -1,21 +1,19 @@
-/*html {
+* {
+    box-sizing: border-box;
+}
+
+html {
     font-size: 62.5%;
-}*/
+}
 
 body {
     font-family: Georgia, Helvetica, Arial, sans-serif;
-    color: navy;
-    padding-left: 1rem;
-    padding-top: 1rem;
-    
+    color: #333333;
+    font-size: 1.6rem;
+    line-height: 1.6;
 }
 
-:link {
-    text-decoration: none;
-}
 
-header {
-    margin-bottom: 1rem;
-  }
+
 
 
